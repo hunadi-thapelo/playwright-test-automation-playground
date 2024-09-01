@@ -20,3 +20,11 @@ test('Handle locator syntax rules', async({page}) => {
    await firstEmailField.fill('johnsmith@email-example.com');
 
 })
+
+test('Handle user facing locators', async({page}) => {
+
+    //get by label
+   const handleEmailFieldByLabel = page.getByLabel('Email').first();
+   await handleEmailFieldByLabel.fill('johndoe@email-example.com');
+
+})
