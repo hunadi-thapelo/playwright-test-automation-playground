@@ -27,4 +27,7 @@ test('Handle user facing locators', async({page}) => {
    const handleEmailFieldByLabel = page.getByLabel('Email').first();
    await handleEmailFieldByLabel.fill('johndoe@email-example.com');
 
+   //get by label
+   const handleButtonByRole = page.getByRole('button', {name:"Sign in"}).first();
+   await handleButtonByRole.click();
 })
