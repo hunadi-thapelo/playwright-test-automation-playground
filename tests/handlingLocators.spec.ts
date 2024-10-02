@@ -12,7 +12,7 @@ test.beforeEach(async ({page})=> {
 test('Handle locator syntax rules', async({page}) => {
 
     //by tag name
-   const clickFullNameField = page.locator('input').first();
+   const clickFullNameField = page.locator('input[placeholder="Jane Doe"]');
    await clickFullNameField.fill('John Smith');
 
    //by attribute
