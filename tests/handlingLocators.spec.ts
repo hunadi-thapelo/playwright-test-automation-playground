@@ -11,23 +11,32 @@ test.beforeEach(async ({page})=> {
 
 test('Handle locator syntax rules', async({page}) => {
 
-    //by tag name
+   await test.step('Fill in Inline Form with a valid full name', async () => {
+          //by tag name
    const clickFullNameField = page.locator('input[placeholder="Jane Doe"]');
    await clickFullNameField.fill('John Smith');
+   });
 
+   await test.step('Fill in Inline Form with a valid email address', async () => {
    //by attribute
    const firstEmailField = page.locator('[placeholder="Email"]').first();
    await firstEmailField.fill('johnsmith@email-example.com');
+   });
 
 })
 
 test('Handle user facing locators', async({page}) => {
 
     //get by label
+    await test.step('Fill in Using the Grid with a valid email address', async () => {
    const handleEmailFieldByLabel = page.getByLabel('Email').first();
    await handleEmailFieldByLabel.fill('johndoe@email-example.com');
+    });
 
    //get by label
+   await test.step('Click on the "Sign In" button', async () => {
    const handleButtonByRole = page.getByRole('button', {name:"Sign in"}).first();
    await handleButtonByRole.click();
+   });
+
 })
