@@ -17,10 +17,15 @@ test('Verify that radio buttons are clickable', async({page}) => {
         await firstRadioButton.click();
 });
 
-     //Method 2: Combines regular locator with user facing locator
+     //Method 2: Chaining locators
      await test.step('Click on Option 2 radio button', async () => {
         const secondRadioButton = page.locator('nb-card').locator('nb-radio').locator(':text-is("Option 2")');
         await secondRadioButton.click();
     });
 
+    //Method 3: Combines regular locator with user facing locator
+    await test.step('Click on Sign In button', async () => {
+        const signInButton = page.locator('nb-card').getByRole('button', {name: "Sign in"}).first();
+        await signInButton.click();
+    });
 })
