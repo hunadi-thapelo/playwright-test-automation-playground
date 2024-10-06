@@ -20,3 +20,13 @@ test('Verify filling in Using the Grid form', async({page}) => {
     });
 
 });
+
+test('Verify filling in Basic form card', async({page}) => {
+    
+    //Using the filter method
+    await test.step('Fill in email for basic form card', async () => {
+        await page.locator('nb-card').filter({hasText: "Basic form"}).getByRole('textbox', {name: "Email"})
+            .fill("test@email-example.com");
+    });
+
+});
