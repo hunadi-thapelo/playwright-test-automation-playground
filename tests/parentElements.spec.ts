@@ -29,4 +29,11 @@ test('Verify filling in Basic form card', async({page}) => {
             .fill("test@email-example.com");
     });
 
+    //Using a locator as a filter with the filter method
+    //using something unique on page e.g color of button
+    await test.step('Fill in password for basic form card', async () => {
+        await page.locator('nb-card').filter({has: page.locator('.status-danger')}).getByRole('textbox', {name: "Password"})
+            .fill("passwrd321");
+    });    
+
 });
