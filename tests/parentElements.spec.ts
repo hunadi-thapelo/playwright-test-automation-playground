@@ -36,4 +36,10 @@ test('Verify filling in Basic form card', async({page}) => {
             .fill("passwrd321");
     });    
 
+    //Using filter method: find common elements e.g checkbox, filter using something unique on page e.g text of form
+    await test.step('Click on submit button', async () => {
+        await page.locator('nb-card').filter({has: page.locator('nb-checkbox')}).filter({hasText: "Basic form"})//.filter({has: page.locator('.status-danger')})
+        .getByRole('button', {name: "Submit"}).click();
+    });     
+
 });
