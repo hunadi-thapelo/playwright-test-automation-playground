@@ -33,6 +33,18 @@ test('assert value has length property equal to expected', async ({ page }) => {
 });
 
 
+test('assert buton text',async ({page}) => {
+        await page.goto('http://localhost:4200/');
+     
+        // Expect a url "to contain" a substring.
+        await expect(page).toHaveURL(/.*dashboard/);
+        await page.getByText('Forms').click();
+        await page.getByText('Form Layouts').click();
+   
+    const form = page.locator('nb-card').filter({hasText: "Block form"});
+    const buttonText = await form.locator('button').textContent();
+    expect(buttonText).toEqual('Submit');
+})
 //Execute immediately
 //Give you instant results
 //Don't know squat about your app
