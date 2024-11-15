@@ -17,6 +17,11 @@ test('locator assertions', async({page}) => {
     await test.step('Assert text using locator assertion', async () => {
         //locator assertion
        await expect (buttonText).toHaveText('Submit')
+
+       //soft assertion - considered not good practice but can be used to validate other assertions and fixing your tests
+       await expect.soft(buttonText).toHaveText('Submitt');
+       await buttonText.click();
+
     });
 
 });
